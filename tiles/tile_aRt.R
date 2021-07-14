@@ -27,7 +27,7 @@ prime_df <- data.frame(x = primest(nm)) %>%
   ungroup() %>% 
   mutate(n = row_number())
 
-plot <- ggplot(prime_df) +
+ggplot(prime_df) +
   geom_tile(aes(x, y, fill = n, height = n/3, width = n/3), color = "#222222", alpha = 0.9) +
   scale_fill_gradientn(colours = c("#e69d25","#e23e64","#886593","#6f4683")) +
   coord_flip() +
@@ -37,8 +37,6 @@ plot <- ggplot(prime_df) +
     plot.background = element_rect(fill = "#111111", color = NA),
     legend.position = "none"
   )
-
-plot
 
 ggsave("tile_aRt.png", width = 6.5, height = 7, device = "png", dpi = 150)
 
